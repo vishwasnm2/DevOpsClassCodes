@@ -1,5 +1,4 @@
-FROM ubuntu  
+FROM tomcat
 
-RUN apt-get update 
-RUN apt-get install -y nginx 
-CMD [“echo”,”Image created”]
+ADD addressbook.war /usr/local/webapps/addressbook.war
+CMD [“Catalina.sh”,”run”]
