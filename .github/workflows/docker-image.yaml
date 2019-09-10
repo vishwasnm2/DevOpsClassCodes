@@ -11,4 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag myimage:0.1
+      run: docker build . --file Dockerfile --tag sandesh2026/abook:$BUILD_NUMBER
+    - name: Pushing the image on DockerHub
+      run: docker push npsoni/abook:$BUILD_NUMBER
