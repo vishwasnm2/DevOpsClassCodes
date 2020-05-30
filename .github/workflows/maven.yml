@@ -17,8 +17,8 @@ jobs:
       run: mvn package --file pom.xml
     - uses: actions/checkout@v1
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag sandesh2026/addressbook:v0.2
+      run: docker build . --file Dockerfile --tag vishwasnm2/myaddressbook:0.1
     - name: Docker credential
-      run: docker login docker.io --username=sandesh2026 --password ${secret.DOCKERHUB}
+      run: docker login docker.io --username=vishwasnm2 --password ${secret.DOCKERSHUB} 
     - name: docker push
-      run: docker push sandesh2026/addressbook:v0.2
+      run: docker push vishwasnm2/myaddressbook:0.1
