@@ -16,7 +16,7 @@ jobs:
     - name: Build with Maven
       run: mvn package --file pom.xml
     - name: git config
-      run: git config --global user.email "sandesh.1rn14ec126@gmail.com" && git config --global user.name "sandesh2027"
+      run: git config --global user.email "vishwasm@devtools.in" && git config --global user.name "vishwasnm2"
     - name : git add and commit 
       run : git add . && git commit -m "commit msg added"
     - name: remote name
@@ -24,7 +24,7 @@ jobs:
     - name : read
       run : cat new.txt
     - name : git push 
-      run : git push https://sandesh2027:${{secrets.SANDESH}}@github.com/vishwasnm2/DevOpsClassCodes HEAD:master
+      run : git push https://vishwasnm2:${{secrets.GITHUBPAT}}@github.com/vishwasnm2/DevOpsClassCodes HEAD:master
     - name : change directory
       run : cd /home
     - name : update
