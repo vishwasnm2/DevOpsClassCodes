@@ -1,7 +1,8 @@
 name: Docker Image CI
 
 on: [push]
-
+  
+  
 jobs:
 
   build:
@@ -12,7 +13,8 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag vishwasnm2/myaddressbook:0.1
-    - name: Docker credentials
-      run: docker login --username vishwasnm2 --password ${secret.DOCKERSHUB}  
-    - name: Pushing the image on DockerHub
+    - name: Docker credential
+      run: docker login docker.io --username=vishwasnm2 --password ${secret.DOCKERSHUB} 
+    - name: docker push
       run: docker push vishwasnm2/myaddressbook:0.1
+      
