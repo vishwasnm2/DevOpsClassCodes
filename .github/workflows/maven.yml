@@ -15,11 +15,24 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn package --file pom.xml
-    - name: change directory
-      run: cd /home
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag vishwasnm2/myaddressbook:0.1
-    - name: Docker credential
-      run: docker login docker.io --username=vishwasnm2 --password ${secret.DOCKERSHUB} 
-    - name: docker push
-      run: docker push vishwasnm2/myaddressbook:0.1
+    - name: git config
+      run: git config --global user.email "sandesh.1rn14ec126@gmail.com" && git config --global user.name "sandesh2027"
+    - name : git add and commit 
+      run : git add . && git commit -m "commit msg added"
+    - name: remote name
+      run: git remote -v >> new.txt
+    - name : read
+      run : cat new.txt
+    - name : git push 
+      run : git push https://sandesh2027:${{secrets.SANDESH}}@github.com/vishwasnm2/DevOpsClassCodes HEAD:master
+    - name : change directory
+      run : cd /home
+    - name : update
+      run : sudo apt-get update
+    - name : install docker
+      run : sudo apt-get install docker
+    - name : test
+      run : sudo docker run hello-world
+    
+  
+      
