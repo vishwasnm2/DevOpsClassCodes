@@ -1,3 +1,3 @@
 FROM tomcat
-ADD target/addressbook.war /usr/local/Tomcat/webapps/
+ADD /home/runner/work/DevOpsClassCodes/DevOpsClassCodes/target/addressbook.war /usr/local/Tomcat/webapps/
 CMD ["catalina.sh","run"]
