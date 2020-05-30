@@ -15,24 +15,16 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn package --file pom.xml
-    - name: git config
-      run: git config --global user.email "vishwasm@devtools.in" && git config --global user.name "vishwasnm2"
-    - name : git add and commit 
-      run : git add . && git commit -m "commit msg added"
-    - name: remote name
-      run: git remote -v >> new.txt
-    - name : read
-      run : cat new.txt
-    - name : git push 
-      run : git push https://vishwasnm2:${{secrets.GITHUBPAT}}@github.com/vishwasnm2/DevOpsClassCodes HEAD:master
-    - name : change directory
-      run : cd /home
-    - name : update
-      run : sudo apt-get update
-    - name : install docker
-      run : sudo apt-get install docker
-    - name : test
-      run : sudo docker run hello-world
+    - name: copy war file
+      run: cp /home/runner/work/DevOpsClassCodes/DevOpsClassCodes/target/addressbook.war .
+    - name: docker build image
+      run: docker build . --file Dockerfile --tag vishwasnm2/myaddressbook:v0.2
+    - name: Docker credential
+      run: docker login docker.io --username vishwasnm2 --password ${{secrets.DOCKERSHUB}}
+    - name: docker push
+      run: docker push vishwasnm2/myaddressbook:v0.2
+    
+   
     
   
       
